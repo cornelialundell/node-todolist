@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+    <title>Todo App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/stylesheets/style.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
+  </head>
+<body>
+ 
+ <div class="todo-container">
+ <h2>To-Do List</h2>
+ <!-- <a href="/?page=<%=(dataToShow/dataToShowPerReq)%>&&sorted=-1"><button>Order by date</button></a> -->
+ <form action="/sort" method="post" class="select">
+ <select id="standard-select" class="example" name="example" onchange="this.form.submit()">
+
+     
+     
+     <option value="oldFirst" <%= oldestFirst %> >Äldst först</option>
+    <option value="newFirst" <%= newestFirst %> >Nyast först</option>
+    <option value="az" <%= alphabeticAz %> >Bokstavsordning A-Z</option>
+    <option value="za" <%= alphabeticZa %> >Bokstavsordning Z-A</option>
+    
+  </select> 
+</form>
+ <div class="todo">
+    <form action="/?page=<%= page %>&&sorted=<%= sorted %>" method="POST" class="todo-header">
+        <input type="text" name="content" placeholder="Add a todo..." />
+        <button type="submit">ADD</button>
+      </form>
+ <ul class="todo-list">
+ <% todoTasks.forEach(details => { %>
+ <li class="todo-list-item <%=details.class%>">
+ <div class="todo-list-item-name"><%= details.content %></div>
+ <a href="/edit/<%= details._id %>?page=<%= page %>&&sorted=<%= sorted %>" class="edit">
+ <span class="fas fa-edit fa-lg"></span>
+ </a>
+ <a href="/checked/<%= details._id %>?page=<%= page %>&&sorted=<%= sorted %>" class="check">
+ <span class="fas fa-check fa-lg"></span>
+ </a>
+ <a href="/remove/<%= details._id %>?page=<%= page %>" class="remove">
+ <span class="fas fa-times fa-lg"></span>
+ </a>
+ </li>
+ <div class="todo-list-item-date">Posted: <%= details.date.toDateString() %> | Time: <%= details.date.getUTCHours() %>:<%= details.date.getUTCMinutes() %></div>
+ <% }) %>
+ </ul>
+ </div>
+ <% if(totalDataPart !== dataToShow/dataToShowPerReq) { %>
+ <a href="/showmore/?page=<%= page %>&&totalPages=<%=totalDataPart%>&&sorted=<%= sorted %>"> 
+ <button class="show <%= displayNone %>">Show more</button>
+ </a>
+ <% } else { %>
+ <a href="/showless/?page=<%= page %>&&sorted=<%= sorted %>"> 
+    <button class="show <%= displayNone %>">Show less</button>
+ </a>
+ <% } %>
+ </div>
+</body>
+</html>

@@ -1,0 +1,295 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --select-border: rgba(119, 119, 119, 0.644);
+  --select-focus: pink;
+  --select-arrow: var(--select-border);
+}
+
+body {
+  background: #ececea;
+  font-family: 'Roboto', sans-serif; 
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+padding: 5rem 0;}
+
+.todo-container {
+  color: #333;
+  padding: 20px;
+  width: 50%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.todo {
+  width: 70%;
+  min-width: 200px; }
+
+.todo-container h2 {
+  padding: 10px;
+  font-size: 5em; 
+  text-transform: uppercase;
+}
+.todo-header {
+  display: flex;
+}
+
+.todo-header input {
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  height: 50px;
+  margin: 1rem 0.5rem 1rem 0;
+  padding: 1rem 0.5rem;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+}
+
+.todo-header button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4rem;
+  height: 50px;
+  margin: 1rem 0;
+  padding: 1rem 0.5rem;
+  border: none;
+  background-color: #596275;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 1px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  -o-border-radius: 1px;
+  cursor: pointer;
+}
+
+.todo-container ul {
+  list-style: none; }
+
+.todo-list-item {
+  height: 2.5rem;
+  padding-left: 0.5rem;
+  margin-top: 10px;
+  border: 1px solid #333;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+}
+
+.todo-list-item form {
+  width: 100%;
+  display: flex; 
+  align-items: center;
+height: 100%}
+
+.todo-list-item input {
+  flex-grow: 2;
+  margin: 0 5px 0 -5px;
+  height: 80%;
+  padding-left: .5rem;
+  border: 1px solid gray;
+  border-radius: 1px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  -o-border-radius: 1px;
+}
+
+.todo-list-item button {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  padding: 0 0.5rem;
+  color: white;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  height: 100%;
+  background-color: #27ae60; }
+
+.todo-list-item .cancel {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  padding: 0 0.5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  background-color: #e74c3c;}
+
+.todo-list-item div {
+  flex-grow: 2; }
+
+.todo-list-item .edit {
+  color: white;
+  background-color: #f1c40f;
+  height: 100%;
+  min-width: 2.5rem;
+  border-left: 1px solid rgba(51, 51, 51, 0.507);
+  cursor: pointer;
+  text-decoration: none; 
+display: flex;
+justify-content: center;
+align-items: center;}
+
+.todo-list-item .remove {
+  color: white;
+  background-color: #e74c3c;
+  border-left: 1px solid rgba(51, 51, 51, 0.507);
+  height: 100%;
+  min-width: 2.5rem;
+  cursor: pointer;
+  text-decoration: none; 
+  display: flex;
+  justify-content: center;
+  align-items: center;}
+
+  .todo-list-item .check {
+    color: white;
+  background-color: #27ae60;
+  height: 100%;
+  min-width: 2.5rem;
+  border-left: 1px solid rgba(51, 51, 51, 0.507);
+    cursor: pointer;
+    text-decoration: none; 
+    display: flex;
+    justify-content: center;
+    align-items: center;}
+  
+
+.checked {
+  background-color: #03a678;
+  text-decoration: line-through; }
+
+.gray {
+  color: gray; }
+
+  .todo-list-item-date {
+    margin-top: 3px;
+    font-size: 0.8rem;
+    color: rgb(160, 160, 160);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    color: rgb(73, 73, 73);
+    padding: 0.2rem 1rem 0.2rem 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.8rem;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+    cursor: inherit;
+    line-height: inherit;
+  }
+  select::-ms-expand {
+    display: none;
+  }
+
+  select {
+    outline: none;
+  }
+
+  .select {
+    width: 40%;
+    border: 1px solid var(--select-border);
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: rgb(221, 34, 34);
+    background-image: linear-gradient(to top, #d4d4d4, rgb(236, 236, 236));
+    display: grid;
+    grid-template-areas: "select";
+    align-items: center;
+  }
+
+  .select::after {
+    content: "";
+    width: 0.8em;
+    height: 0.5em;
+    background-color: var(--select-arrow);
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    justify-self: end;
+  }
+  select,
+.select:after {
+  grid-area: select;
+}
+
+
+.show {
+  margin-top: 2rem;
+  border: none;
+  background-color: #596275;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-height: 3rem;
+  min-width: 10rem;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.5s ease, transform 0.2s ease;
+  -webkit-transition: background-color 0.5s ease, transform 0.2s ease;
+  -moz-transition: background-color 0.5s ease, transform 0.2s ease;
+  -ms-transition: background-color 0.5s ease, transform 0.2s ease;
+  -o-transition: background-color 0.5s ease, transform 0.2s ease;
+}
+
+.show:hover {
+  background-color: #303952;
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+.display-none {
+  display: none;
+}
+
+
+
+
+
+  @media screen and (max-width: 600px) {
+    body {
+      background-color: red;
+    }
+  }
