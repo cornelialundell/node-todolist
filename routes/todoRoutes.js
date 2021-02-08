@@ -14,9 +14,9 @@ router.get("/", async (req, res) => {
   let sorted = +req.query.sorted || 1;
   let page = +req.query.page || 1;
   const totalData = await TodoTask.find().countDocuments();
-  const dataToShowPerReq = 4;
-  const totalDataPart = Math.ceil(totalData / dataToShowPerReq);
-  const dataToShow = dataToShowPerReq * page;
+  const dataToShowPerPage = 4;
+  const totalDataPart = Math.ceil(totalData / dataToShowPerPage);
+  const dataToShow = dataToShowPerPage * page;
   await TodoTask.find()
     .limit(dataToShow)
     .sort([[typeOfSort, sorted]])
@@ -27,7 +27,7 @@ router.get("/", async (req, res) => {
         totalData,
         totalDataPart,
         dataToShow,
-        dataToShowPerReq,
+        dataToShowPerPage,
         todoTasks: tasks,
         displayNone,
         oldestFirst,
@@ -90,8 +90,8 @@ router
     let sorted = +req.query.sorted || 1;
     let page = +req.query.page || 1;
     const id = req.params.id;
-    const dataToShowPerReq = 4;
-    const dataToShow = dataToShowPerReq * page;
+    const dataToShowPerPage = 4;
+    const dataToShow = dataToShowPerPage * page;
     TodoTask.find()
       .limit(dataToShow)
       .sort([[typeOfSort, sorted]])
@@ -100,7 +100,7 @@ router
           sorted,
           page,
           dataToShow,
-          dataToShowPerReq,
+          dataToShowPerPage,
           todoTasks: tasks,
           idTask: id
         });

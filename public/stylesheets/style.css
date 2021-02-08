@@ -23,7 +23,6 @@ padding: 5rem 0;}
 
 .todo-container {
   color: #333;
-  padding: 20px;
   width: 50%;
   border-radius: 20px;
   display: flex;
@@ -284,12 +283,9 @@ align-items: center;}
   display: none;
 }
 
-
-
-
-
-  @media screen and (max-width: 600px) {
-    body {
-      background-color: red;
-    }
+  @media screen and (max-width: 800px) {
+  body {
+    font-size: 75%;
+  }
+    
   }

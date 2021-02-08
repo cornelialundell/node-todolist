@@ -1,13 +1,8 @@
 const express = require("express");
-const bodyParser = require("body-parser"); //
+const bodyParser = require("body-parser"); 
 const mongoose = require("mongoose");
 const router = require("./routes/todoRoutes.js");
-// const userRouter = require("./routes/userRoute")
-
 require("dotenv").config();
-
-
-// const TodoTask = require("./models/TodoTask.js");
 
 const app = express();
 app.use("/static", express.static("public"));

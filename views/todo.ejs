@@ -19,7 +19,6 @@
  
  <div class="todo-container">
  <h2>To-Do List</h2>
- <!-- <a href="/?page=<%=(dataToShow/dataToShowPerReq)%>&&sorted=-1"><button>Order by date</button></a> -->
  <form action="/sort" method="post" class="select">
  <select id="standard-select" class="example" name="example" onchange="this.form.submit()">
 
@@ -55,7 +54,7 @@
  <% }) %>
  </ul>
  </div>
- <% if(totalDataPart !== dataToShow/dataToShowPerReq) { %>
+ <% if(totalDataPart !== dataToShow/dataToShowPerPage) { %>
  <a href="/showmore/?page=<%= page %>&&totalPages=<%=totalDataPart%>&&sorted=<%= sorted %>"> 
  <button class="show <%= displayNone %>">Show more</button>
  </a>
