@@ -18,7 +18,7 @@ mongoose.connect(process.env.DB_CONNECT,
     }, (err)=> {
     if (err) return 
     const PORT = process.env.PORT
-    app.listen(PORT || 80, ()=> {
+    app.listen(PORT, ()=> {
         console.log("app is running ")
     })
     })
